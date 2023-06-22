@@ -10,9 +10,12 @@ export const handleSearch = async (searchQuery: string) => {
     const response = await axios.get(`${backendPort}/search?title=${searchQuery}`);
     
     console.log(response.data);
+  
+    localStorage.setItem('titles', JSON.stringify(response.data));
   } catch (error) {
    
     console.error(error);
+    return error;
   }
 };
 

@@ -15,7 +15,7 @@ const SearchComponent: React.FC = () => {
   return (
     <div>
       <input type="text" value={searchQuery} onChange={handleInputChange} />
-      <button onClick={()=>handleSearch("Res")}>Buscar</button>
+      <button onClick={()=>handleSearch(searchQuery)}>Buscar</button>
     </div>
   );
 };
