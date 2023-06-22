@@ -1,9 +1,13 @@
 import axios from "axios";
-import { BACKEND_PORT } from '../../env.json';
+import env from '../../env.json';
+
+const backendPort: string = env.BACKEND_PORT;
+
+
 
 export const handleSearch = async (searchQuery: string) => {
   try {
-    const response = await axios.get(`${BACKEND_PORT}/search?title=${searchQuery}`);
+    const response = await axios.get(`${backendPort}/search?title=${searchQuery}`);
     
     console.log(response.data);
   } catch (error) {
