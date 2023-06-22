@@ -1,11 +1,7 @@
 
 import React from 'react';
+import { Result } from '../interfaces/interfaces';
 
-interface Result {
-  id: number;
-  title: string;
-  description: string;
-}
 
 interface DetailsComponentProps {
   selectedResult: Result;
@@ -16,6 +12,7 @@ const DetailsComponent: React.FC<DetailsComponentProps> = ({ selectedResult }) =
     <div>
       <h2>Detalles del resultado</h2>
       <h3>{selectedResult.title}</h3>
+      {/* <img src={selectedResult.img} style={{heigth:20}}></img> */}
       <p>{selectedResult.description}</p>
     </div>
   );

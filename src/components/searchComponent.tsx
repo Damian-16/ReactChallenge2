@@ -1,11 +1,11 @@
 
 import React, { useState } from 'react';
-import { handleSearch } from '../backend/backendServices';
-
+import { getSearchAction } from '../redux/actions/searchAction';
+import { useDispatch } from 'react-redux';
 
 const SearchComponent: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
-
+const dispatch = useDispatch()
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
   };
@@ -15,7 +15,7 @@ const SearchComponent: React.FC = () => {
   return (
     <div>
       <input type="text" value={searchQuery} onChange={handleInputChange} />
-      <button onClick={()=>handleSearch(searchQuery)}>Buscar</button>
+      <button onClick={()=> dispatch(getSearchAction({ searchQuery }))}>Buscar</button>
     </div>
   );
 };

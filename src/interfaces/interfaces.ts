@@ -1,3 +1,5 @@
+
+
 export interface Result {
   id: number;
   title: string;
@@ -16,5 +18,8 @@ export interface SearchAction {
 
 export interface SearchState {
   loading: boolean;
-  data: Result[]; // El tipo específico de los datos dependerá de tu aplicación
+  data: Result[]; 
+}
+export interface RootState {
+    search: SearchState;
 }

@@ -1,24 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import SearchComponent from './components/searchComponent';
 import ResultsComponent from './components/resultsComponent';
 import DetailsComponent from './components/detailsComponent';
+import { useSelector } from 'react-redux';
+import { RootState } from './interfaces/interfaces';
 
 const App: React.FC = () => {
- 
-  const searchResults = [
-    { id: 1, title: 'Resultado 1', description: 'Descripción del resultado 1' },
-    { id: 2, title: 'Resultado 2', description: 'Descripción del resultado 2' },
-    { id: 3, title: 'Resultado 3', description: 'Descripción del resultado 3' },
-  ];
+
+
+  let resultStore:any = useSelector((store: RootState) => store.search.data);
+  const [searchResults, setSearchResults] = useState([])
+  
+
+
+  useEffect(() => {
+  setSearchResults(resultStore)
+
+  }, [resultStore])
+
+
 
   
   const [selectedResult, setSelectedResult] = React.useState<any>(null);
 
-  
+
   const handleResultSelection = (result: any) => {
     setSelectedResult(result);
+    
   };
+   
 
   return (
     <Router>
@@ -29,6 +40,7 @@ const App: React.FC = () => {
             <SearchComponent />
           </Route>
           <Route path="/results">
+            <SearchComponent />
             <ResultsComponent
               searchResults={searchResults}
               onResultSelect={handleResultSelection}

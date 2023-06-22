@@ -1,9 +1,13 @@
 import { createStore, combineReducers, compose, applyMiddleware, Store } from "redux";
 import thunk, { ThunkDispatch, ThunkAction } from "redux-thunk";
+import searchReducer from "../reducers/searchReducer";
+import { RootState } from "../../interfaces/interfaces";
 
-interface RootState {}
 
-const rootReducer = combineReducers<RootState>({});
+
+const rootReducer = combineReducers<RootState>({
+  search: searchReducer,
+});
 
 type RootAction = any;
 

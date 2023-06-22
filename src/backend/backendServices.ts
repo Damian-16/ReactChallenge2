@@ -8,14 +8,17 @@ const backendPort: string = env.BACKEND_PORT;
 export const handleSearch = async (searchQuery: string) => {
   try {
     const response = await axios.get(`${backendPort}/search?title=${searchQuery}`);
-    
-    console.log(response.data);
-  
-    localStorage.setItem('titles', JSON.stringify(response.data));
-  } catch (error) {
+    debugger
+    console.log(response.data.config);
    
+  
+    return response.data
+  } catch (error) {
+    // if(response.data.length===0){
+    //   alert("No search results found")
+    // }
     console.error(error);
-    return error;
+  
   }
 };
 
