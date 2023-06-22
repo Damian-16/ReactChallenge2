@@ -33,4 +33,9 @@ export const useStyles = {
     alignText: "center",
     alignSelf:"center"
   },
+  cards:{
+    opacity:0.8,
+    margin:2,
+    width:"40%"
+  }
 };
