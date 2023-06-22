@@ -5,6 +5,9 @@ import ResultsComponent from './components/resultsComponent';
 import DetailsComponent from './components/detailsComponent';
 import { useSelector } from 'react-redux';
 import { RootState } from './interfaces/interfaces';
+import Container from '@mui/material/Container'
+import { Typography } from '@mui/material';
+import { useStyles } from './assets/styles/styles';
 
 const App: React.FC = () => {
 
@@ -33,8 +36,8 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      <div>
-        <h1>Aplicación de búsqueda</h1>
+      <Container sx={useStyles.root}  maxWidth="xs">
+        <Typography sx={useStyles.h1} variant="h2">Aplicación de búsqueda</Typography >
         <Switch>
           <Route exact path="/">
             <SearchComponent />
@@ -50,7 +53,7 @@ const App: React.FC = () => {
             <DetailsComponent selectedResult={selectedResult} />
           </Route>
         </Switch>
-      </div>
+        </Container> 
     </Router>
   );
 };
