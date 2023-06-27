@@ -6,7 +6,7 @@ import DetailsComponent from './components/detailsComponent';
 import { useSelector } from 'react-redux';
 import { RootState } from './interfaces/interfaces';
 import Container from '@mui/material/Container'
-import { Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import { useStyles } from './assets/styles/styles';
 
 const App: React.FC = () => {
@@ -36,7 +36,7 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      <Container sx={useStyles.root}  maxWidth="xs">
+      <Grid container style={{width: '100%',}} sx={useStyles.root}  maxWidth="xs">
         <Typography sx={useStyles.h1} variant="h2">Aplicación de búsqueda</Typography >
         <Switch>
           <Route exact path="/">
@@ -53,7 +53,7 @@ const App: React.FC = () => {
             <DetailsComponent selectedResult={selectedResult} />
           </Route>
         </Switch>
-        </Container> 
+        </Grid> 
     </Router>
   );
 };

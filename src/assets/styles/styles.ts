@@ -12,7 +12,7 @@ export const useStyles = {
     textRendering: "optimizeLegibility",
     WebkitFontSmoothing: "antialiased",
     MozOsxFontSmoothing: "grayscale",
-    WebkitTextSizeAdjust: "100%",
+     WebkitTextSizeAdjust: "100%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -25,7 +25,6 @@ export const useStyles = {
     minWidth: 320,
     minHeight: "50vh",
     borderRadius: '4%',
-
   },
   h1: {
     fontSize: "3.2em",
@@ -33,9 +32,20 @@ export const useStyles = {
     alignText: "center",
     alignSelf:"center"
   },
+  cardsContainer: {
+   flex:1,
+  },
   cards:{
+    
+   flex:1,
     opacity:0.8,
     margin:2,
-    width:"40%"
+     width: 300,
+     padding:0
+  },
+  loading:{
+    alignSelf:"center",
+    marginBottom:5,
+    flex:"auto"
   }
 };
