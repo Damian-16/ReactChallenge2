@@ -21,8 +21,10 @@ const ResultsComponent: React.FC<ResultsComponentProps> = ({ searchResults }) =>
       </Button>) : searchResults && searchResults.map((result) => (
         <Grid style={{ flex: 1 }} xs={12} >
           <Card sx={useStyles.cards} key={result.id}>
-            <CardHeader>{result.title}</CardHeader>
-            <AspectRatio minHeight="120px" maxHeight="200px">
+            <CardHeader title={result.title} />
+
+
+            <AspectRatio variant="outlined" sx={{ margin: 2 }} minHeight="120px" maxHeight="200px">
               <img
                 src={result.img}
                 loading="lazy"
