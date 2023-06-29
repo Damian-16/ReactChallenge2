@@ -1,17 +1,23 @@
 
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import { ResultsComponentProps, RootState } from '../interfaces/interfaces';
 import { Card, CardContent, CardHeader, Grid, Typography } from '@mui/material';
 import { useStyles } from '../assets/styles/styles';
 import AspectRatio from '@mui/joy/AspectRatio';
 import { useSelector } from 'react-redux';
 import { Button } from '@mui/joy';
+import { navigateTo } from '../utils/constants';
+import { Link } from 'react-router-dom';
+
 
 
 
 const ResultsComponent: React.FC<ResultsComponentProps> = ({ searchResults }) => {
 
   let loading: any = useSelector((store: RootState) => store.search.loading);
+  const handleButtonClick = () => {
+    navigateTo('/details/1');
+  };
   return (
     <Grid item sx={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
 
@@ -32,6 +38,9 @@ const ResultsComponent: React.FC<ResultsComponentProps> = ({ searchResults }) =>
               />
             </AspectRatio>
             <CardContent>{result.description}</CardContent>
+            <Link to={`/details/${result.id}`} >
+            <Button  sx={useStyles.button} >Ver Más</Button>
+            </Link>
           </Card>
         </Grid>
       ))}
